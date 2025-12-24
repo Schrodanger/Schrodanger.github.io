@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sourav Sharma | Software Engineer @ Microsoft</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Grid Background -->
+    <div class="grid-bg"></div>
+
+    <!-- Floating Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo magnetic" data-magnetic>
+                <span class="logo-glitch" data-text="SS">SS</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link magnetic" data-magnetic><span data-text="Home">Home</span></a></li>
+                <li class="nav-item"><a href="#about" class="nav-link magnetic" data-magnetic><span data-text="About">About</span></a></li>
+                <li class="nav-item"><a href="#experience" class="nav-link magnetic" data-magnetic><span data-text="Experience">Experience</span></a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link magnetic" data-magnetic><span data-text="Skills">Skills</span></a></li>
+                <li class="nav-item"><a href="#achievements" class="nav-link magnetic" data-magnetic><span data-text="Achievements">Achievements</span></a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link magnetic" data-magnetic><span data-text="Contact">Contact</span></a></li>
+            </ul>
+            <button class="theme-toggle magnetic" id="themeToggle" data-magnetic>
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>Available for opportunities</span>
+                </div>
+                <div class="hero-title-wrapper">
+                    <h1 class="hero-title split-text">
+                        <span class="line"><span class="line-inner">Sourav</span></span>
+                        <span class="line"><span class="line-inner">Sharma</span></span>
+                    </h1>
+                </div>
+                <div class="hero-role">
+                    <span class="role-prefix">→</span>
+                    <span class="role-text" id="roleText">Software Engineer</span>
+                    <span class="role-suffix">@ Microsoft</span>
+                </div>
+                <p class="hero-description reveal-text">
+                    Building the future of <span class="highlight">Global Payments</span> at Microsoft C+E. 
+                    NIT Warangal graduate passionate about creating <span class="highlight">innovative solutions</span> 
+                    that impact millions of users worldwide.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary magnetic" data-magnetic>
+                        <span class="btn-text">Let's Connect</span>
+                        <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="#experience" class="btn btn-ghost magnetic" data-magnetic>
+                        <span class="btn-text">View Work</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value" data-count="2">0</span>
+                        <span class="stat-label">Years at Microsoft</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" data-count="300">0</span>
+                        <span class="stat-suffix">K+</span>
+                        <span class="stat-label">Daily Transactions Secured</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" data-count="851">0</span>
+                        <span class="stat-suffix">th</span>
+                        <span class="stat-label">Google Code Jam Rank</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="visual-wrapper">
+                    <div class="visual-card card-3d">
+                        <div class="card-glow"></div>
+                        <div class="card-content">
+                            <div class="terminal">
+                                <div class="terminal-header">
+                                    <span class="terminal-dot red"></span>
+                                    <span class="terminal-dot yellow"></span>
+                                    <span class="terminal-dot green"></span>
+                                    <span class="terminal-title">sourav@microsoft</span>
+                                </div>
+                                <div class="terminal-body">
+                                    <div class="terminal-line">
+                                        <span class="prompt">$</span>
+                                        <span class="command" id="terminalCommand"></span>
+                                        <span class="cursor-blink">▊</span>
+                                    </div>
+                                    <div class="terminal-output" id="terminalOutput"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-icons">
+                        <div class="float-icon icon-1"><i class="fab fa-microsoft"></i></div>
+                        <div class="float-icon icon-2"><i class="fas fa-code"></i></div>
+                        <div class="float-icon icon-3"><i class="fab fa-python"></i></div>
+                        <div class="float-icon icon-4"><i class="fas fa-database"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">01</span>
+                <h2 class="section-title glitch" data-text="About Me">About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="image-frame tilt-card">
+                        <div class="frame-border"></div>
+                        <div class="about-avatar">
+                            <!-- Replace 'profile.jpg' with your actual image filename -->
+                            <img src="profile.jpg" alt="Sourav Sharma" class="avatar-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="avatar-placeholder" style="display: none;">
+                                <span class="avatar-initials">SS</span>
+                            </div>
+                        </div>
+                        <div class="image-decoration">
+                            <span class="dec-line"></span>
+                            <span class="dec-dot"></span>
+                        </div>
+                    </div>
+                    <div class="about-social">
+                        <a href="https://github.com/Schrodanger" target="_blank" class="social-link magnetic" data-magnetic>
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/schrodanger" target="_blank" class="social-link magnetic" data-magnetic>
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://leetcode.com/u/knight0423/" target="_blank" class="social-link magnetic" data-magnetic>
+                            <i class="fas fa-code"></i>
+                        </a>
+                        <a href="https://codeforces.com/profile/S.o.u.r.av" target="_blank" class="social-link magnetic" data-magnetic>
+                            <i class="fas fa-trophy"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <div class="about-intro">
+                        <p class="intro-large">
+                            I'm a <span class="text-gradient">Software Engineer</span> at Microsoft, 
+                            working on the Global Payments team within the C+E organization.
+                        </p>
+                    </div>
+                    <div class="about-details">
+                        <p>
+                            A proud graduate of <strong>NIT Warangal</strong> (BTech in Electrical and Electronics Engineering), 
+                            I specialize in building robust payment systems that handle millions of transactions daily.
+                        </p>
+                        <p>
+                            My journey at Microsoft began as an intern, where I developed a proof of concept for QR code payments. 
+                            Now, I work on integrating payment providers like JPMC, Juspay, and BillDesk, ensuring compliance with 
+                            regulations like PA-CB mandated by RBI.
+                        </p>
+                    </div>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="highlight-content">
+                                <h4>NIT Warangal</h4>
+                                <p>BTech EEE • Class of 2023</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon"><i class="fab fa-microsoft"></i></div>
+                            <div class="highlight-content">
+                                <h4>Microsoft</h4>
+                                <p>Software Engineer • C+E Global Payments</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">02</span>
+                <h2 class="section-title glitch" data-text="Experience">Experience</h2>
+            </div>
+            <div class="experience-wrapper">
+                <div class="experience-timeline">
+                    <!-- Microsoft SDE -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-line"></div>
+                        </div>
+                        <div class="timeline-card glass-card tilt-card">
+                            <div class="card-header">
+                                <div class="company-logo">
+                                    <i class="fab fa-microsoft"></i>
+                                </div>
+                                <div class="card-meta">
+                                    <h3>Software Engineer</h3>
+                                    <h4>Microsoft</h4>
+                                    <span class="date">June 2023 – Present</span>
+                                    <span class="location"><i class="fas fa-map-marker-alt"></i> Hyderabad, India</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <ul class="experience-list">
+                                    <li>
+                                        <span class="exp-tag">SEPA</span>
+                                        Integrated UI/UX and backend for SEPA payments through JPMC provider for European market
+                                    </li>
+                                    <li>
+                                        <span class="exp-tag">JOSE</span>
+                                        Implemented end-to-end JOSE framework integration for Microsoft UPI payments with Juspay
+                                    </li>
+                                    <li>
+                                        <span class="exp-tag">PA-CB</span>
+                                        Implemented RBI-mandated PA-CB regulation for credit card and UPI payments with BillDesk & Juspay
+                                    </li>
+                                    <li>
+                                        <span class="exp-tag">UPI</span>
+                                        Enhanced UPI payments by integrating Juspay for VPA enrollment including UPI Commercial & QR
+                                    </li>
+                                    <li>
+                                        <span class="exp-tag">Security</span>
+                                        Led VPA masking efforts, securing ~300K VPAs daily for India UPI payments
+                                    </li>
+                                    <li>
+                                        <span class="exp-tag">On-call</span>
+                                        Handle high severity incidents ensuring prompt resolution of critical issues
+                                    </li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span>C#</span>
+                                    <span>.NET</span>
+                                    <span>ASP.NET</span>
+                                    <span>REST API</span>
+                                    <span>Azure</span>
+                                    <span>Kusto</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Microsoft Intern -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-line"></div>
+                        </div>
+                        <div class="timeline-card glass-card tilt-card">
+                            <div class="card-header">
+                                <div class="company-logo">
+                                    <i class="fab fa-microsoft"></i>
+                                </div>
+                                <div class="card-meta">
+                                    <h3>Software Development Intern</h3>
+                                    <h4>Microsoft</h4>
+                                    <span class="date">May 2022 – July 2022</span>
+                                    <span class="location"><i class="fas fa-map-marker-alt"></i> Bangalore, India</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <ul class="experience-list">
+                                    <li>Designed and developed full-stack POC for QR code payments using UPI for Microsoft Customers</li>
+                                    <li>Worked on PIDL SDK and Payment Experience for all Microsoft partners</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span>ASP.NET</span>
+                                    <span>REST API</span>
+                                    <span>C#</span>
+                                    <span>HTML/CSS/JS</span>
+                                    <span>Firebase</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Microsoft Engage -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-line"></div>
+                        </div>
+                        <div class="timeline-card glass-card tilt-card">
+                            <div class="card-header">
+                                <div class="company-logo">
+                                    <i class="fab fa-microsoft"></i>
+                                </div>
+                                <div class="card-meta">
+                                    <h3>Microsoft Engage Mentee</h3>
+                                    <h4>Microsoft</h4>
+                                    <span class="date">June 2021 – July 2021</span>
+                                    <span class="location"><i class="fas fa-map-marker-alt"></i> Remote</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <ul class="experience-list">
+                                    <li>Built a <strong>Microsoft Teams Clone</strong> Web Application</li>
+                                    <li>Project selected for final evaluation among participants</li>
+                                    <li>Deployed on Heroku using Twilio's private server</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span>React</span>
+                                    <span>Node.js</span>
+                                    <span>WebRTC</span>
+                                    <span>Socket.io</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- T&P Coordinator -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                        </div>
+                        <div class="timeline-card glass-card tilt-card">
+                            <div class="card-header">
+                                <div class="company-logo nitw">
+                                    <span>NIT</span>
+                                </div>
+                                <div class="card-meta">
+                                    <h3>Training & Placement Coordinator</h3>
+                                    <h4>NIT Warangal</h4>
+                                    <span class="date">June 2022 – June 2023</span>
+                                    <span class="location"><i class="fas fa-map-marker-alt"></i> Warangal, India</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <ul class="experience-list">
+                                    <li>Coordinated placement activities for 1000+ students</li>
+                                    <li>Liaised between students and recruiting companies</li>
+                                    <li>Organized pre-placement talks and campus drives</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">03</span>
+                <h2 class="section-title glitch" data-text="Skills">Skills</h2>
+            </div>
+            <div class="skills-wrapper">
+                <div class="skills-category">
+                    <h3 class="category-title">
+                        <span class="category-icon"><i class="fas fa-code"></i></span>
+                        Languages
+                    </h3>
+                    <div class="skills-grid">
+                        <div class="skill-card glass-card magnetic" data-magnetic>
+                            <div class="skill-icon"><i class="fab fa-python"></i></div>
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar"><div class="skill-progress" data-level="90"></div></div>
+                        </div>
+                        <div class="skill-card glass-card magnetic" data-magnetic>
+                            <div class="skill-icon"><i class="fas fa-hashtag"></i></div>
+                            <span class="skill-name">C#</span>
+                            <div class="skill-bar"><div class="skill-progress" data-level="95"></div></div>
+                        </div>
+                        <div class="skill-card glass-card magnetic" data-magnetic>
+                            <div class="skill-icon"><i class="fab fa-cuttlefish"></i></div>
+                            <span class="skill-name">C/C++</span>
+                            <div class="skill-bar"><div class="skill-progress" data-level="85"></div></div>
+                        </div>
+                        <div class="skill-card glass-card magnetic" data-magnetic>
+                            <div class="skill-icon"><i class="fab fa-java"></i></div>
+                            <span class="skill-name">Java</span>
+                            <div class="skill-bar"><div class="skill-progress" data-level="75"></div></div>
+                        </div>
+                        <div class="skill-card glass-card magnetic" data-magnetic>
+                            <div class="skill-icon"><i class="fab fa-js"></i></div>
+                            <span class="skill-name">JavaScript</span>
+                            <div class="skill-bar"><div class="skill-progress" data-level="85"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="category-title">
+                        <span class="category-icon"><i class="fas fa-layer-group"></i></span>
+                        Frameworks & Tools
+                    </h3>
+                    <div class="skills-grid">
+                        <div class="skill-card glass-card magnetic" data-magnetic>
+                            <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
+                            <span class="skill-name">.NET</span>
+                            <div class="skill-bar"><div class="skill-progress" data-level="95"></div></div>
+                        </div>
+                        <div class="skill-card glass-card magnetic" data-magnetic>
+                            <div class="skill-icon"><i class="fas fa-server"></i></div>
+                            <span class="skill-name">ASP.NET</span>
+                            <div class="skill-bar"><div class="skill-progress" data-level="90"></div></div>
+                        </div>
+                        <div class="skill-card glass-card magnetic" data-magnetic>
+                            <div class="skill-icon"><i class="fab fa-node-js"></i></div>
+                            <span class="skill-name">Node.js</span>
+                            <div class="skill-bar"><div class="skill-progress" data-level="80"></div></div>
+                        </div>
+                        <div class="skill-card glass-card magnetic" data-magnetic>
+                            <div class="skill-icon"><i class="fab fa-react"></i></div>
+                            <span class="skill-name">React</span>
+                            <div class="skill-bar"><div class="skill-progress" data-level="75"></div></div>
+                        </div>
+                        <div class="skill-card glass-card magnetic" data-magnetic>
+                            <div class="skill-icon"><i class="fab fa-python"></i></div>
+                            <span class="skill-name">Django</span>
+                            <div class="skill-bar"><div class="skill-progress" data-level="70"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="category-title">
+                        <span class="category-icon"><i class="fas fa-cloud"></i></span>
+                        Cloud & Database
+                    </h3>
+                    <div class="skills-grid">
+                        <div class="skill-card glass-card magnetic" data-magnetic>
+                            <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
+                            <span class="skill-name">Azure</span>
+                            <div class="skill-bar"><div class="skill-progress" data-level="90"></div></div>
+                        </div>
+                        <div class="skill-card glass-card magnetic" data-magnetic>
+                            <div class="skill-icon"><i class="fas fa-database"></i></div>
+                            <span class="skill-name">Kusto</span>
+                            <div class="skill-bar"><div class="skill-progress" data-level="85"></div></div>
+                        </div>
+                        <div class="skill-card glass-card magnetic" data-magnetic>
+                            <div class="skill-icon"><i class="fas fa-database"></i></div>
+                            <span class="skill-name">MySQL</span>
+                            <div class="skill-bar"><div class="skill-progress" data-level="80"></div></div>
+                        </div>
+                        <div class="skill-card glass-card magnetic" data-magnetic>
+                            <div class="skill-icon"><i class="fas fa-exchange-alt"></i></div>
+                            <span class="skill-name">REST APIs</span>
+                            <div class="skill-bar"><div class="skill-progress" data-level="95"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements" id="achievements">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">04</span>
+                <h2 class="section-title glitch" data-text="Achievements">Achievements</h2>
+            </div>
+            <div class="achievements-grid">
+                <div class="achievement-card glass-card tilt-card">
+                    <div class="achievement-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Google Code Jam 2022</h3>
+                        <p>Achieved <span class="highlight-text">851st Global Rank</span> in Round 1</p>
+                        <span class="achievement-year">2022</span>
+                    </div>
+                    <div class="card-decoration"></div>
+                </div>
+
+                <div class="achievement-card glass-card tilt-card">
+                    <div class="achievement-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Google Foobar</h3>
+                        <p>Successfully completed the <span class="highlight-text">secret coding challenge</span></p>
+                        <span class="achievement-year">2022</span>
+                    </div>
+                    <div class="card-decoration"></div>
+                </div>
+
+                <div class="achievement-card glass-card tilt-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>INSPIRE Scholarship</h3>
+                        <p>Recipient of <span class="highlight-text">INSPIRE Award</span> by DST, Govt. of India</p>
+                        <span class="achievement-year">2019</span>
+                    </div>
+                    <div class="card-decoration"></div>
+                </div>
+
+                <div class="achievement-card glass-card tilt-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Academic Excellence</h3>
+                        <p><span class="highlight-text">94.17%</span> in X • <span class="highlight-text">91%</span> in XII</p>
+                        <span class="achievement-year">2016-18</span>
+                    </div>
+                    <div class="card-decoration"></div>
+                </div>
+            </div>
+
+            <div class="coding-profiles">
+                <h3 class="profiles-title">Coding Profiles</h3>
+                <div class="profiles-grid">
+                    <a href="https://leetcode.com/u/knight0423/" target="_blank" class="profile-card magnetic" data-magnetic>
+                        <div class="profile-icon leetcode">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <span>LeetCode</span>
+                        <span class="profile-handle">@knight0423</span>
+                    </a>
+                    <a href="https://www.codechef.com/users/sourav_sharmaa" target="_blank" class="profile-card magnetic" data-magnetic>
+                        <div class="profile-icon codechef">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <span>CodeChef</span>
+                        <span class="profile-handle">@sourav_sharmaa</span>
+                    </a>
+                    <a href="https://codeforces.com/profile/S.o.u.r.av" target="_blank" class="profile-card magnetic" data-magnetic>
+                        <div class="profile-icon codeforces">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <span>Codeforces</span>
+                        <span class="profile-handle">@S.o.u.r.av</span>
+                    </a>
+                    <a href="https://github.com/Schrodanger" target="_blank" class="profile-card magnetic" data-magnetic>
+                        <div class="profile-icon github">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <span>GitHub</span>
+                        <span class="profile-handle">@Schrodanger</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">05</span>
+                <h2 class="section-title glitch" data-text="Get In Touch">Get In Touch</h2>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-intro">
+                        <h3>Let's work together</h3>
+                        <p>Feel free to reach out for collaborations, opportunities, or just a friendly chat about technology!</p>
+                    </div>
+                    <div class="contact-details">
+                        <a href="mailto:souravsharma9828@gmail.com" class="contact-item magnetic" data-magnetic>
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <span class="label">Email</span>
+                                <span class="value">souravsharma9828@gmail.com</span>
+                            </div>
+                        </a>
+                        <a href="tel:+919828677683" class="contact-item magnetic" data-magnetic>
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <span class="label">Phone</span>
+                                <span class="value">+91 9828677683</span>
+                            </div>
+                        </a>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <span class="label">Location</span>
+                                <span class="value">Hyderabad, India</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <a href="https://linkedin.com/in/schrodanger" target="_blank" class="social-btn magnetic" data-magnetic>
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/Schrodanger" target="_blank" class="social-btn magnetic" data-magnetic>
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:souravsharma9828@gmail.com" class="social-btn magnetic" data-magnetic>
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form glass-card" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" name="name" id="name" required>
+                                <label for="name">Your Name</label>
+                                <span class="focus-border"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" id="email" required>
+                                <label for="email">Your Email</label>
+                                <span class="focus-border"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" id="subject" required>
+                            <label for="subject">Subject</label>
+                            <span class="focus-border"></span>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" id="message" rows="5" required></textarea>
+                            <label for="message">Your Message</label>
+                            <span class="focus-border"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit magnetic" data-magnetic>
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-glitch" data-text="SS">SS</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://linkedin.com/in/schrodanger" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/Schrodanger" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:souravsharma9828@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+                <p class="copyright">
+                    <span>Designed & Built by</span>
+                    <span class="text-gradient">Sourav Sharma</span>
+                    <span>© 2025</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top magnetic" id="backToTop" data-magnetic>
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
