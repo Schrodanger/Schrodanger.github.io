@@ -351,11 +351,8 @@ function initFormValidation() {
     
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData);
         
         // Basic validation
         let isValid = true;
@@ -371,23 +368,44 @@ function initFormValidation() {
         });
 
         if (isValid) {
-            // Simulate form submission
             const btn = form.querySelector('.btn-submit');
             const originalText = btn.innerHTML;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             btn.disabled = true;
 
-            setTimeout(() => {
-                btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
-                btn.style.background = 'linear-gradient(135deg, #00ff88, #00cc6a)';
+            try {
+                // Submit to Formspree
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+                    btn.style.background = 'linear-gradient(135deg, #00ff88, #00cc6a)';
+                    form.reset();
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.style.background = '';
+                        btn.disabled = false;
+                    }, 3000);
+                } else {
+                    throw new Error('Failed to send');
+                }
+            } catch (error) {
+                btn.innerHTML = '<i class="fas fa-times"></i> Error!';
+                btn.style.background = 'linear-gradient(135deg, #ff4444, #cc0000)';
                 
                 setTimeout(() => {
                     btn.innerHTML = originalText;
                     btn.style.background = '';
                     btn.disabled = false;
-                    form.reset();
-                }, 2000);
-            }, 1500);
+                }, 3000);
+            }
         }
     });
 
